@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takudzwa Gatsi - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: linear-gradient(135deg, #4CAF50, #2C3E50);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        section {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background: #e7e7e7;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .contact-icons a {
+            color: #4CAF50;
+            font-size: 28px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .contact-icons a:hover {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #4CAF50;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            .contact-icons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-icons a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Takudzwa Gatsi</h1>
+        <p>Software Engineer | Problem Solver | Tech Enthusiast</p>
+    </header>
+    <div class="container">
+        <div class="contact-icons">
+            <a onclick="showModal('email')" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a onclick="showModal('phone')" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+            <a href="https://github.com/example" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/example" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a passionate software engineer with a strong foundation in developing efficient and scalable applications. I thrive on solving complex problems and continuously learning new technologies. My goal is to leverage technology to create impactful solutions that improve everyday lives.</p>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill">HTML</div>
+                <div class="skill">React</div>
+                <div class="skill">Python</div>
+                <div class="skill">Java</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">SQL</div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>Diploma in Software Engineering</strong><br>Telone Center for Learning (2019 - 2022)</p>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <h3>Network Engineer Intern</h3>
+            <p>Rowan Martin Building, Harare City Council Offices (2022)</p>
+            <ul>
+                <li>Assisted in maintaining and troubleshooting network infrastructure.</li>
+                <li>Collaborated with the IT team to implement network security measures.</li>
+                <li>Provided technical support to staff, improving overall productivity.</li>
+            </ul>
+            <h3>Software Development Intern</h3>
+            <p>ABC Tech Solutions (2023)</p>
+            <ul>
+                <li>Developed web applications using React and Node.js.</li>
+                <li>Participated in code reviews and collaborated in Agile teams.</li>
+                <li>Contributed to the design and implementation of RESTful APIs.</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div>
+                <h3>Transport Services Website</h3>
+                <p>A platform that helps users quickly find trucks to carry their goods, featuring real-time tracking and booking functionalities.</p>
+            </div>
+            <div>
+                <h3>Personal Portfolio</h3>
+                <p>Designed and developed this portfolio website to showcase my skills and projects, built with HTML, CSS, and JavaScript.</p>
+            </div>
+            <div>
+                <h3>Task Management App</h3>
+                <p>A web application that allows users to manage their tasks efficiently, built with React and Firebase for real-time updates.</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Takudzwa Gatsi</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+        </div>
+    </div>
+
+    <script>
+        // Scroll effect
+        const sections = document.querySelectorAll('section');
+        const options = {
+            root: null,
+            threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Modal functionality
+        function showModal(type) {
+            const modal = document.getElementById("myModal");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalContent = document.getElementById("modalContent");
+
+            if (type === 'email') {
+                modalTitle.textContent = "Email";
+                modalContent.innerHTML = "You can reach me at: <strong>example@gmail.com</strong>";
+            } else if (type === 'phone') {
+                modalTitle.textContent = "Phone";
+                modalContent.innerHTML = "You can call me at: <strong>+1234567890</strong>";
+            }
+            
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
